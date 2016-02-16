@@ -16,6 +16,7 @@ local todo = "Todoist"
 
 hs.hotkey.bind(super_shift, "R", function()
   hs.reload()
+  hs.alert.show('Hammerspoon reloaded')
 end)
 
 hs.hotkey.bind(super_shift, "C", function()
@@ -90,6 +91,22 @@ hs.hotkey.bind(super, "Down", function()
     end
 end)
 
+hs.hotkey.bind(super, "escape", function()
+	hs.alert.show('Looking busy', 0.5)
+    local helium = hs.application.find('Helium')
+    if helium then
+        helium:kill()
+    end
+    local audio = hs.audiodevice.defaultOutputDevice()
+    if audio then
+        audio:setMuted(true)
+    end
+    hs.application.launchOrFocus(editor)
+    local win = hs.window.focusedWindow()
+    if false == win:isFullScreen() then
+        win:maximize()
+    end
+end)
 
 
 function setupDevelopmentEnvironment()
