@@ -12,6 +12,8 @@ local editor = "Sublime Text"
 local mail = "Airmail 2"
 local launcher = "Alfred 2"
 local todo = "Todoist"
+local music = "Spotify"
+local messenger = "Franz"
 
 
 hs.hotkey.bind(super_shift, "R", function()
@@ -46,6 +48,14 @@ end)
 
 hs.hotkey.bind(super, "T", function()
   hs.application.launchOrFocus(todo)
+end)
+
+hs.hotkey.bind(super, "S", function()
+  hs.application.launchOrFocus(music)
+end)
+
+hs.hotkey.bind(super, "C", function()
+  hs.application.launchOrFocus(messenger)
 end)
 
 -- hs.hotkey.bind(super, "N", function()
